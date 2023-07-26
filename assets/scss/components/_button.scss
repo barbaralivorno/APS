@@ -1,0 +1,29 @@
+.button {
+  &--with-arrow {
+    background: url('assets/images/icon-arrow-right--long-white.svg') no-repeat right 1.25rem center;
+    background-size: 3.3rem auto;
+    padding-right: 6rem !important;
+  }
+
+  &--orange {
+    background-color: $orange;
+    color: white;
+    font-size: 1.13rem;
+    text-transform: uppercase;
+    padding: 1.5rem 2rem 1.5rem 2.25rem;
+
+    @include for-size(tablet-down) {
+      padding: 1.14rem 1.42rem 1.14rem 2.25rem;
+    }
+
+    &:hover {
+      background-color: $dark-orange;
+      color: white;
+    }
+  }
+
+  &--busy {
+    font-size: 0 !important;
+    background-image: none;
+  }
+}

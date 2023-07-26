@@ -1,0 +1,28 @@
+.ip-licensing-page__hero-slider {
+  .hero__slider-slide {
+    &-text-wrapper {
+      bottom: 9.05rem;
+      transform: none;
+      
+      @include for-size(tablet-down) {
+        bottom: 2.72rem;
+      }
+    }
+
+    @include for-size(phone-only) {
+      &-text-wrapper {
+        width: calc(100% -  var(--wrapper-padding));
+        padding-right: 1rem;
+      }
+
+      &-title {
+        font-size: 2.857rem;
+        line-height: 2.857rem;
+      }
+
+      &-text {
+        width: 15.07rem;
+      }
+    }
+  }
+}

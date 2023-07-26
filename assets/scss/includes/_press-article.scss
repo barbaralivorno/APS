@@ -1,0 +1,63 @@
+.press-article {
+  width: calc(100% - 2*var(--wrapper-padding));
+  padding: 5rem 0;
+  margin: auto;
+
+  @include for-size(phone-only) {
+    padding: 3rem 0
+  }
+
+  &__title {
+    @include secondary-font;
+    @include font-size(xl);
+    line-height: 1.2em;
+    font-weight: bold;
+    margin-bottom: 2rem;
+
+    &:after {
+      content: '';
+      width: 5rem;
+      display: block;
+      margin: 1rem 0;
+      border-top: 6px solid $orange;  
+    }
+  }
+
+  &__group {
+    @include secondary-font;
+    font-size: 0.75rem;
+    display: flex;
+    font-weight: bold;
+    color: $gray;
+    margin-bottom: 1.3rem;
+  }
+
+  &__topic{
+    &:before {
+      content: "-";
+      display: inline-block;
+      margin: 0 2px;
+    }
+  }
+
+  &__image {
+    width: fit-content;
+    
+    &--sm {
+      max-width: 500px;
+      margin: 1rem auto;
+    }
+
+    @include for-size(phone-only) {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    margin: 2rem 0;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+// Site Colors
+$orange: #FF6714;
+$dark-orange: #EB5300;
+$light-orange: #FEA328;
+$cream: #F7F3F2;
+$violet: #5140E0;
+$lightest-blue: #E1E9F0;
+$light-blue: #23D0FD;
+$blue: #1374FC;
+$red: #FF0000;
+$green: #45CB73;
+$lightest-gray: #F3F7F8;
+$light-gray: #ECF0F1;
+$gray: #4D5357;
+$gray2: #878D96;
+$dark-gray: #343A3E;
+$dark-gray2: #2B2B2B;
+$dark-gray3: #2F2F2F;
+
+// Responsive
+$phone-max-width: 767px;
+$tablet-min-width: ($phone-max-width + 1px); 
+$tablet-max-width: 1024px;
+$laptop-min-width: ($tablet-max-width + 1px); 
+$laptop-max-width: 1440px;
+$desktop-min-width: ($laptop-max-width + 1px);
+$desktop-max-width: 1920px;
+$hd-min-width: ($desktop-max-width + 1px);
+
+// Font
+$desktop-font-sizes: (xs: 0.85rem, sm: 0.9375rem, md: 17px, lg: 1.375rem, xl: 2.5rem, xxl: 3.5rem, xxxl: 4.375rem);
+$laptop-font-sizes:  (xs: 0.85rem, sm: 0.9375rem, md: 16px, lg: 1.375rem, xl: 2.5rem, xxl: 3.5rem, xxxl: 4.375rem);
+$phone-font-sizes:   (xs: 0.85rem, sm: 0.9375rem, md: 14px, lg: 1.375rem, xl: 2.5rem, xxl: 3.5rem, xxxl: 4.375rem);
+
+// Sizes
+$footer-height: 24.19rem;
+$header-button-width: 19.862vw;
+
+:root {
+  --header-height: 4.854rem;
+  --wrapper-padding: 8.75rem;
+
+  @media (max-width: $tablet-max-width) {
+    --wrapper-padding: 4rem;
+  }
+
+  @media (max-width: $phone-max-width) {
+    --header-height: 6rem;
+    --wrapper-padding: 5vw;
+  }
+}
+
+@import 'hd-components-variables';

@@ -1,0 +1,13 @@
+.not-found-page {
+  &__content {
+    @include font-size(xxl);
+    min-height: calc(100vh - #{$footer-height});
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .site-header {
+    color: black;
+  }
+}

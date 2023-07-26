@@ -1,0 +1,23 @@
+.scroll-button {
+  @include font-size(sm);
+  font-weight: normal;
+  position: absolute;
+  top: 2rem;
+  left: 3.5rem;
+
+  @include for-size(phone-only) {
+    left: 1rem;
+    top: 1.14rem;
+  }
+
+  &:after {
+    content: url('assets/images/icon-arrow-down--gray.svg');
+    display: block;
+  }
+
+  &:hover {
+    span, &:after {
+      opacity: 0.8;
+    }
+  }
+}

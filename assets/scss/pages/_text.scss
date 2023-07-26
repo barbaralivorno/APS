@@ -1,0 +1,47 @@
+.text-page {
+  &__main {
+    min-height: calc(100vh - #{$footer-height});
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    padding-top: var(--header-height) + 3rem;
+    padding-bottom: 5rem;
+
+
+    ul {
+      list-style: disc;
+    }
+
+    ul, ol {
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__content {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 30px;
+  }
+}

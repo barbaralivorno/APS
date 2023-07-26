@@ -1,0 +1,89 @@
+.custom-select {
+    position: relative;
+    background: white;
+    padding: 0;
+    border: 0;
+    height: 2.5rem;
+    margin-bottom: 1.5rem;
+  
+    @media (max-width: 950px) {
+      height: 2.85rem;
+    }
+    
+    @at-root select.field__validation-message + & {
+      outline: 1px solid red;
+    }
+  
+    &__option {
+      @include font-size(sm);
+      line-height: 1.2em;
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.25rem 0.91rem;
+      user-select: none;
+  
+      &:not(.custom-select__option--value):hover {
+        color: white;
+        background: $orange;
+      }
+  
+      &--selected, &--selected:not(.custom-select__option--value):hover {
+        color: white;
+        background: $orange;
+      }
+  
+      &--value {
+        @include font-size(sm);
+        height: 100%;
+        padding: 0.8rem;
+        line-height: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 500ms;
+  
+        &:after {
+          content: '';
+          width: 12px;
+          height: 8px;
+          background-image: url(assets/images/icon-arrow-down--orange.svg);
+          background-size: contain;
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          transform: translateY(-50%);
+          transition: transform 350ms;
+          background-repeat: no-repeat ;
+        }
+      }
+    }
+  
+    &__dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      color: $gray;
+      z-index: 100;
+      width: 100%;
+      max-height: 9.375rem;
+      overflow: auto;
+      border-top: 0;
+      padding: 0.5rem 0;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    }
+  
+    &--active {
+      border-bottom: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+  
+      .custom-select__option--value:after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+  

@@ -1,0 +1,72 @@
+// Responsive
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: $phone-max-width) { @content; }
+  } @else if $size == tablet-only {
+    @media (min-width: $tablet-min-width) and (max-width: $tablet-max-width) { @content; }
+  } @else if $size == laptop-only {
+    @media (min-width: $laptop-min-width) and (max-width: $laptop-max-width) { @content; }
+  } @else if $size == tablet-down {
+    @media (max-width: $tablet-max-width) { @content; }
+  } @else if $size == laptop-down {
+    @media (max-width: $laptop-max-width) { @content; }
+  } @else if $size == tablet-up {
+    @media (min-width: $tablet-min-width) { @content; }
+  } @else if $size == laptop-up {
+    @media (min-width: $laptop-min-width) { @content; }
+  } @else if $size == desktop-up {
+    @media (min-width: $desktop-min-width) { @content; }
+  } @else if $size == hd-up {
+    @media (min-width: $hd-min-width) { @content; }
+  }
+}
+
+// Font
+@mixin euclid-circular-a {
+  font-family: 'Euclid Circular A', sans-serif;
+}
+
+@mixin proxima-nova {
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+
+@mixin primary-font {
+  @include proxima-nova;
+}
+
+@mixin secondary-font {
+  @include euclid-circular-a;
+}
+
+@mixin heading-font {
+  @include secondary-font;
+  font-weight: bold;
+}
+
+@mixin font-size($size) {
+  font-size: #{map-get($desktop-font-sizes, $size)};
+  @if $size == 'xxxl' {
+    line-height: 1.02em;
+  } @else if $size == 'xxl' {
+    line-height: 1em;
+  } @else if $size == 'xl' {
+    line-height: 1.1em;
+  } @else if $size == 'lg' {
+    line-height: 1.09em;
+  } @else if $size == 'md' {
+    line-height: 1.5em;
+  } @else if $size == 'sm' {
+    line-height: 1.33em;
+  } @else if $size == 'xs' {
+    line-height: 1.4em;
+  }
+
+  @include for-size(tablet-down) {
+    font-size: #{map-get($phone-font-sizes, $size)};
+  }
+
+  @include for-size(laptop-only) {
+    font-size: #{map-get($laptop-font-sizes, $size)};
+  }
+}

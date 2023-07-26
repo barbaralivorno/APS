@@ -1,0 +1,25 @@
+.section {
+  &--wrapped {
+    padding-left: var(--wrapper-padding) !important;
+    padding-right: var(--wrapper-padding) !important;
+    box-sizing: border-box;
+  }
+
+  &--overlaped {
+    margin-top: -4.625rem !important;
+    position: relative !important;
+    z-index: 10 !important;
+
+    @include for-size(tablet-down) {
+      margin-top: -2.5rem!important;
+    }
+  }
+}
+
+@include for-size(laptop-up){
+  .sticky-left-pane {
+    position: sticky !important;
+    top: calc(2rem + var(--header-height));
+    left: 0;  
+  }
+}

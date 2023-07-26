@@ -1,0 +1,226 @@
+.numbered-list {
+  list-style: none;
+  counter-reset: item-counter;
+  
+  &__item {
+    counter-increment: item-counter;
+    margin-bottom: 3.375rem;
+
+    @media (max-width: 950px) {
+      margin-bottom: 6.5rem;
+    }
+
+    @include for-size(phone-only) {
+      margin-bottom: 4.2rem;
+    }
+
+    &:nth-child(even) > * {
+      background-color: $lightest-gray;
+    }
+
+    & > * {
+      .content-box__heading, .content-group__title {
+        position: relative;
+
+        &:before {
+          content: "0" counter(item-counter);
+          
+          line-height: 1em;
+          position: absolute;
+          left: 0;
+        }
+
+        &:after {
+          margin-left: 1.5rem;
+        }
+      }
+
+      .content-box__heading:before {
+        color: var(--line-color);
+        font-size: 16px;
+        bottom: 0;
+        transform: translateY(calc(50% - 4px));
+        font-weight: bold;
+      }
+  
+      .content-group__title:before {
+        color: $gray2;
+        font-size: 2rem;
+        font-weight: bold;
+        top: 0;
+        transform: translateY(calc(-100% - 1rem));
+
+        @include for-size(phone-only) {
+          font-size: inherit;
+          transform: translateY(calc(-100% - 1.5rem));
+        }
+      }
+    }
+  }
+
+  &__navigation {
+    padding: calc(5rem + var(--header-height)) 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include for-size(tablet-up) {
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      left: 0;
+      flex-direction: column;
+    }
+
+    @include for-size(phone-only) {
+      padding: 0 2rem;
+      position: sticky;
+      top: 8rem;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    &-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      @include for-size(laptop-up) {
+        transform: translateX(100%);
+      }
+      
+      @include for-size(tablet-up) {
+        height: 100%;
+      }
+
+      @include for-size(tablet-down) {
+        transform: translateX(0%);
+      }
+
+      @include for-size(phone-only) {
+        width: 100%;
+        height: calc(100% - 100vh + calc(2*var(--header-height)) + 3.125rem);
+      }
+    }
+
+    &-list {
+      &-item {
+        $nav-item: &;
+        color: $gray2;
+        position: relative;
+
+        @include for-size(tablet-up) {
+          margin-bottom: 2rem;
+        }
+
+        &--active {
+          #{$nav-item}-button {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 350ms;
+          }
+
+          #{$nav-item}-label {
+            opacity: 1;
+            transition: opacity 1100ms 100ms;
+
+            @include for-size(phone-only) {
+              position: relative;
+            }
+          }
+        }
+
+        &:hover {
+          color: $orange;
+        }
+
+        &-button {
+          opacity: 1;
+          cursor: pointer;
+          transition: opacity 350ms;
+
+          @include for-size(phone-only) {
+            display: none;
+            pointer-events: none;
+          }
+        }
+
+        &-label {
+          @include secondary-font;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          position: absolute;
+          white-space: nowrap;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          pointer-events: none;
+          color: $orange;
+          transition: opacity 500ms;
+
+          @include for-size(tablet-up) {
+            &:before {
+              content: '';
+              width: 1rem;
+              height: 1px;
+              background-color: #707070;
+              display: inline-block;
+              margin-right: 1rem;
+              margin-left: -2rem;
+            }
+          }
+
+          @include for-size(phone-only) {
+            font-size: 1.15rem;
+          }
+        }
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.6875rem;
+
+      @include for-size(phone-only) {
+        flex-direction: row;
+        margin: 0 0 0 1.5rem;
+      }
+
+      &-item {
+        width: 3.125rem;
+        height: 3.125rem;
+        color: $orange;
+        transition: color 350ms, opacity 250ms;
+
+        &:disabled {
+          opacity: 0.65;
+          cursor: default;
+          transition: opacity 250ms;
+        }
+      
+        &:not([disabled]):hover {
+          color: $gray;
+          transition: color 350ms;
+        }
+  
+        &.button--up {
+          margin-bottom: 1rem;
+          transform: rotate(180deg);
+
+          @include for-size(phone-only) {
+            transform: rotate(90deg);
+            margin: 0 1rem 0 0;
+          }
+        }
+
+        &.button--down {
+          @include for-size(phone-only) {
+            transform: rotate(-90deg);
+          }
+        }
+      }
+    }
+  }
+}

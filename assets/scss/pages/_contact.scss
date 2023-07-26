@@ -1,0 +1,238 @@
+.contact-page {
+  background-color: #F2F4F8;
+
+  &__main {
+    margin-top: calc(-1*var(--header-height));
+  }
+
+  &__columns {
+    display: flex;
+
+    @include for-size(laptop-up) {
+      min-height: 56.25rem;
+      height: 100vh;
+    }
+
+    @include for-size(phone-only) {
+      min-height: 100vh;
+      flex-direction: column;
+    }
+  }
+
+  &__left-column{
+    width: 42.5vw;
+    color: white;
+    position: relative;
+
+    @media (max-width: 950px) {
+      width: 100%;
+    }
+
+    @include for-size(phone-only) {
+      height: 32.5rem;
+      overflow: hidden;
+    }
+
+    &-group {
+      width: 26.11vw;
+      position: absolute;
+      left: 9.7vw;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @media (max-width: 950px) {
+        width: 90%;
+        left: 5%;
+      }
+
+      @include for-size(phone-only) {
+        top: auto;
+        bottom: 5.8rem;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__background-image {
+    position: relative;
+    height: 100%;
+
+    &::before {
+      content: '';
+      background-color: black;
+      opacity: 0.3;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+  }
+
+  &__title {
+    @include secondary-font;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 3.12rem;
+
+    @include for-size(phone-only) {
+      font-size: 3.42rem;
+      margin-bottom: 1.14rem;
+    }
+  }
+
+  &__short-description {
+    font-size: 17px;
+  }
+
+  &__right-column {
+    width: 57.5vw;
+    position: relative;
+
+    @media (max-width: 950px) {
+      flex-direction: column;
+      width: 100%;
+      padding: 6rem 0 7.6rem 0;
+    }
+
+    @include for-size(phone-only) {
+      padding-top: 3rem;
+    }
+
+    &-group {
+      width: 39.72vw;
+      position: absolute;
+      left: 7.9vw;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @media (max-width: 1150px) {
+        width: 90%;
+        left: 5%;
+      }
+
+      @media (max-width: 950px) {
+        width: 100%;
+        left: 0;
+        padding: 0 var(--wrapper-padding);
+        position: relative;
+      }
+      
+      @include for-size(phone-only) {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__form {
+    &-text {
+      width: 23.89vw;
+      margin-bottom: 1.5rem;
+
+      @media (max-width: 1150px) {
+        width: 100%;
+        margin-bottom: 1.5rem;
+      }
+
+      @media (max-width: 950px) {
+        margin-bottom: 2.5rem;
+      }
+
+      h2 {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.37rem;
+      }
+    }
+
+    &-field-group {
+      width: calc(50% - 8px);
+
+      @media (max-width: 950px) {
+        width: 100%;
+      }
+    }
+
+    &-group {
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: 950px) {
+       flex-direction: column;
+      }
+
+      .field {
+        width: 100%;
+      }
+    } 
+
+    &-submit {
+      font-size: 1.12rem;
+      display: flex;
+
+      @include for-size(phone-only) {
+        width: 100%;
+      }
+    }
+
+    &-terms-and-conditions {
+      margin-bottom: 2rem;
+
+      @media (max-width: 1150px) {
+        margin-bottom: 1.5rem;
+      }
+
+      @media (max-width: 950px) {
+        margin-bottom: 4.4rem;
+      }
+    }
+
+    .contact-form__message--error {
+      @include font-size(sm);
+      color: $orange;
+      margin-top: 1rem;
+
+      .title {
+        @include font-size(md);
+      }
+    }
+  }
+
+  &__label {
+    font-size: 15px;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .site-header {
+    position: relative;
+    
+    &__button {
+      display: none;
+    }
+
+    &__nav-icon {
+      color: black;
+
+      @include for-size(phone-only) {
+        color: white;
+      }
+    }
+  }
+}

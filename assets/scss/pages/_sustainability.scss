@@ -1,0 +1,11 @@
+.sustainability-page__hero-slider {
+  .hero__slider-slide {
+    &-text-wrapper {
+      max-width: 35.5rem;
+
+      @include for-size(phone-only) {
+        width: 16.78rem;
+      }
+    }
+  }
+}

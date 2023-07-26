@@ -1,0 +1,125 @@
+.logos-box {
+  background-color: #EDF1F2;
+  padding: 3.3rem 8rem 4rem 8rem;
+
+  @media (max-width: 950px) {
+    padding: 8.6rem var(--wrapper-padding) 2.85rem var(--wrapper-padding);
+    margin-top: -11.5rem;
+  }
+
+  &--without-background-color {
+    background-color: transparent;
+    padding: 0 16.44rem 0 16.44rem;
+    margin: 4.19rem auto 4.125rem auto;
+
+    @include for-size(tablet-down) {
+      padding: 0 var(--wrapper-padding);
+      margin: 4rem 0;
+    }
+
+    @include for-size(phone-only) {
+      margin: 2.14rem 0;
+    }
+  }
+
+  &__title {
+    font-size: 0.8125rem;
+    color: #242424;
+    text-transform: var(--title-config);
+    letter-spacing: 1px;
+    text-align: center;
+
+    @media (max-width: 950px) {
+      text-align: left;
+      display: table-caption;
+    }
+
+    &--lowercase {
+      @include font-size(xl);
+      font-weight: 500;
+      margin-bottom: 5rem;
+
+      @media (max-width: 950px) {
+        display: block;
+      }
+
+      @include for-size(phone-only) {
+        font-size: 1.785rem;
+        line-height: 2.14rem;
+        max-width: 70%;
+        margin-bottom: 3.7rem;
+      }
+    }
+  }
+
+  &__slider {
+    margin-top: 2rem;
+
+    &-slides {
+      display: flex;
+      justify-content: center;
+
+      @include for-size(phone-only) {
+        flex-wrap: wrap;
+      }      
+    }
+
+    &-slide {
+      width: calc(25% - 2rem);
+      margin: 0 1rem;
+
+      @include for-size(phone-only) {
+        width: calc(50% - 1rem);
+        margin: 1rem;
+
+        &:nth-child(odd) {
+          margin-left: 0;
+        }
+
+        &:nth-child(even) {
+          margin-right: 0;
+        }
+      }
+
+      &-media {
+        width: 100%;
+        height: 8rem;
+      }
+    }
+  }
+
+  &__text {
+    width: 47.63vw;
+    font-size: 1.56rem;
+    line-height: 1.875rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 2rem auto 0 auto;
+    color: $gray;
+
+    @media (max-width: 950px) {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    @include for-size(phone-only) {
+      @include font-size(md);
+      text-align: left;
+    }
+
+    strong {
+      color: $orange;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    @include for-size(phone-only) {
+      width: calc(100% - 2.4rem);
+    }
+  }
+}

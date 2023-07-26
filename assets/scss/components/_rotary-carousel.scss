@@ -1,0 +1,132 @@
+.rotary-carousel {
+  position: relative;
+  perspective: 1000px;
+  cursor: grab;
+
+  &__carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    --rotation: 0deg;
+
+    &-item {
+      width: 20vh;
+      height: 40vh;
+      max-height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      pointer-events: none;
+      opacity: 0.3;
+      transform-style: preserve-3d;
+      transition: transform 1.25s, opacity 1.25s 500ms;
+
+      @media (min-height: 800px) {
+        --radius: min(30vh, 30vw);
+      }
+
+      @media (max-height: 800px) {
+        --radius: min(36vh, 36vw);
+      }
+
+      &--1 {
+        transform: translate(-50%,-50%) rotateY(var(--rotation)) translateZ(var(--radius)) rotateY(calc(-1*var(--rotation)));
+      }
+
+      &--2 {
+        transform: translate(-50%,-50%) rotateY(calc(var(--rotation) + 120deg)) translateZ(var(--radius)) rotateY(calc(-1*(var(--rotation) + 120deg)));
+      }
+
+      &--3 {
+        transform: translate(-50%,-50%) rotateY(calc(var(--rotation) + 240deg)) translateZ(var(--radius)) rotateY(calc(-1*(var(--rotation) + 240deg)));
+      }
+
+      &.active {
+        opacity: 1;
+
+        @media (max-height: 800px) {
+          --radius: min(60vh, 60vw);
+        }
+
+        @media (max-width: 1200px) {
+          --radius: min(50vh, 50vw);
+        }
+
+        @include for-size(tablet-down) {
+          --radius: min(30vh, 30vw);
+        }
+      }
+
+      &-media {
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: transform 1s;
+      }
+    }
+
+    &-arrow {
+      width: 20px;
+      height: 15px;
+      background: url(assets/images/icon-arrow--short-white.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+
+      &.button--prev {
+        left: calc(50% - 8vw);
+        transform: rotate(180deg) translate(100%, -50%);
+      }
+
+      &.button--next {
+        right: calc(50% - 8vw);
+        transform: translate(100%, 50%);
+      }
+
+      @media (min-width: 1500px) {
+        width: 25px;
+        height: 20px;
+
+        &.button--prev {
+          left: calc(50% - 7vw);
+        }
+  
+        &.button--next {
+          right: calc(50% - 7vw);
+        }
+      }
+
+      @include for-size(phone-only) {
+        &.button--prev {
+          left: calc(50% - 10vw);
+        }
+  
+        &.button--next {
+          right: calc(50% - 10vw);
+        }
+      }
+
+      @media (max-width: 650px) {
+        &.button--prev {
+          left: calc(50% - 13vw);
+        }
+  
+        &.button--next {
+          right: calc(50% - 13vw);
+        }
+      }
+
+      @media (max-width: 500px) {
+        &.button--prev {
+          left: calc(50% - 16vw);
+        }
+  
+        &.button--next {
+          right: calc(50% - 16vw);
+        }
+      }
+    }
+  }
+}

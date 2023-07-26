@@ -1,0 +1,31 @@
+.icon-with-text {
+  align-items: flex-start;
+
+  &__icon-wrapper {
+    max-width: 3rem;
+    width: auto;
+    height: 4rem;
+    margin: 0 0 1.3rem 0;
+
+    svg, img {
+      width: auto;
+      height: auto;
+      position: static;
+    }
+  }
+
+  &__text {
+    text-align: left;
+    color: $gray;
+
+    strong {
+      font-size: 1.187rem;
+      color: #272525;
+
+      @include for-size(phone-only) {
+        font-size: 1.285rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

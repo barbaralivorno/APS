@@ -1,0 +1,77 @@
+.field {
+  &__input {
+    @include font-size(sm);
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+    border: none;
+
+    &--text, &--email {
+      height: 2.5rem;
+
+      @media (max-width: 950px) {
+        height: 2.85rem;
+      }
+    }
+
+    &--checkbox {
+      width: 1.25rem;
+      height: 1.19rem;
+      margin-bottom: 0;    
+    }
+
+    &--invalid {
+      border: 1px solid $orange;
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  &--checkbox {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    
+    .field__input {
+      display: none;
+
+      & + .field__label {
+        @include font-size(sm);
+
+        &:before {
+          content: '';
+          width: 20px;
+          height: 19px;
+          border: 1px solid $orange;
+          background-color: #F4F9FE;
+          vertical-align: middle;
+          display: inline-block;
+          margin-right: 0.6rem;
+        }
+      }
+
+      &:checked {
+        & + .field__label:before {
+          background-color: $orange;
+        }
+      }
+    }
+
+    .field__error {
+      margin-top: 0.3rem;
+    }
+  }
+
+  &--textarea textarea {
+    resize: none;
+    margin: 0;
+  }
+
+  &__error {
+    @include font-size(xs);
+    width: 100%;
+    color: $orange;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+}
